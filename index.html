@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Array Submission</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="outer">
+        <div class="head">LogStream</div>
+        
+    <div class="inner">
+    <div class="ingestor">
+        <div style="font-weight: bold; font-size: 30px; margin-bottom: 5px;" >Ingestor</div>
+        <div>Enter your log data here by pasting it in the text area and click Submit</div>
+        <form id="jsonForm">
+            <label for="jsonInput" >Enter in JSON Array format:</label>
+        </br>
+            <textarea id="jsonInput" rows="5" cols="50"></textarea>
+            <br>
+            <input type="submit" value="Submit" class="button-18">
+        </form>
+    </div>
+
+    <div class="query">
+        <div style="font-weight: bold; font-size: 30px;" >QueryMaster</div>
+    <div style="padding-top: 5px; display: flex; align-items: center;">
+        <p style="margin-right: 20px;">Retrieve data and run filters</p>
+        <button id="btn" class="button-18" onclick="convert( )"> Retrieve </button> <br>
+    </div style="margin-bottom:0px">
+    Search through logs here 
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search " style="margin-bottom:10px">
+
+    <div class="filterbox">
+        <div class="filter"> Level Filter
+            <input type="text" name="" id="mylevel" placeholder="level filter" onkeyup="searchFun()">
+        </div>
+        <div class="filter"> Message Filter
+            <input type="text" name="" id="mymessage" placeholder="message filter" onkeyup="searchFun()">
+        </div>
+        <div class="filter"> ResourceId Filter
+            <input type="text" name="" id="myresourceId" placeholder="resourceId filter" onkeyup="searchFun()">
+        </div>
+        <div class="filter"> Timestamp Filter
+            <input type="text" name="" id="mytimestamp" placeholder="timestamp filter" onkeyup="searchFun()">
+        </div>
+    </div>
+
+    <div class="filterbox">
+        <div class="filter"> TraceId Filter
+            <input type="text" name="" id="mytraceId" placeholder="traceId filter" onkeyup="searchFun()">
+        </div>
+        <div class="filter"> spanId Filter
+            <input type="text" name="" id="myspanId" placeholder="spanId filter" onkeyup="searchFun()">
+        </div>
+        <div class="filter"> commit Filter
+            <input type="text" name="" id="mycommit" placeholder="commit filter" onkeyup="searchFun()">
+        </div>
+        <div class="filter"> metadata Filter
+            <input type="text" name="" id="mymetadata" placeholder="metadata filter" onkeyup="searchFun()">
+        </div>
+    </div>
+
+    <form onsubmit="searchtime()" class="formfilter">
+        <p>Filter logs between time
+        <input type="text" name="" id="time1" placeholder="from time " >
+        <input type="text" name="" id="time2" placeholder="to time ">
+        <input type="submit" value="Find" id="sub" class="button-18" onclick="searchtime()">
+        <input type="button" value="clear" class="button-18" onclick="reload()">
+        </p>
+    </form>
+    
+    
+    <div id="container" clas="table table-dark table-hover"> 
+    <div>
+        <table class="table" id="logtable">
+            <thead>
+                <th>level</th>
+                <th>message</th>
+                <th>resourceId</th>
+                <th>timestamp</th>
+                <th>traceId</th>
+                <th>spanId</th>
+                <th>commit</th>
+                <th>metadata</th>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
+    </div> 
+</div>
+</div>
+</div>
+    <script src="frontend.js">
+    
+
+    </script>
+
+</body>
+</html>
